@@ -11,6 +11,20 @@
 <script>
 export default {
     name:'login',
+    data:function(){
+        return {
+            username: '',
+            password: ''
+        }
+    },
+    methods:{
+        login:function(){
+            let {username, password} = this;
+            this.$store.dispatch('login',{username, password}).then(() => {
+                this.$router.push('/');
+            });
+        }
+    },
     components:{}
 }
 </script>
