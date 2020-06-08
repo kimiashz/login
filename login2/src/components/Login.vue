@@ -20,7 +20,11 @@ export default {
     methods:{
         login: function(){
             const { username, password } = this;
-            console.log('login',username, password);
+            this.$router.push('about');
+            console.log('login',this);
+            this.$store.dispatch('AUTH_REQUEST', { username, password }).then(() => {
+                this.$router.push('/')
+            })
         }
     }
 }
